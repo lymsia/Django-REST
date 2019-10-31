@@ -1,0 +1,5 @@
+# docker
+develop/data/
+
+# python
+__pycache__/

@@ -1,12 +1,15 @@
-# Django REST
+# REST-API with Django REST Framework
 
-# Environment
+# Environment 
 BACKEND: Django framework
 DB: MySQL
 
 # How to run
-Make sure 8080 port is open
-'''
+Pre Requirement Docker installation
+
+make sure 8080 port is open
+```
   docker-compose up -d
-'''
+```
+access the application with url: http://localhost:8080
 
