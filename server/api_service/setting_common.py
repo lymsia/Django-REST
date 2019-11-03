@@ -123,7 +123,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
