@@ -11,6 +11,9 @@ class History(models.Model):
         db_table = 'history'
 
     def __str__(self):
-        return 'History({}, {}, {})'.format(
-            self.purchaser, self.product, self.purchase_timestamp)
+        return 'Purchaser: {}, Product: {}, Date: {})'.format(
+            self.purchaser,
+            self.product,
+            self.purchase_timestamp.date()
+        )
 

@@ -11,5 +11,5 @@ class Purchaser(models.Model):
         db_table = 'purchaser'
 
     def __str__(self):
-        return 'Purchaser({}, {}, {})'.format(self.id, self.name, self.created_date)
+        return '{}'.format(self.name)
 

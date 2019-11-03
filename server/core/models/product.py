@@ -11,5 +11,5 @@ class Product(models.Model):
         db_table = 'product'
 
     def __str__(self):
-        return 'Product({}, {}, {})'.format(self.id, self.name, self.created_date)
+        return '{}'.format(self.name)
 
