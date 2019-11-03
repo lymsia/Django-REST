@@ -1,6 +1,7 @@
 version: '3'
 services:
     mysql:
+        container_name: 'api_db'
         image: mysql:5.7
         restart: always
         ports:
@@ -15,6 +16,7 @@ services:
             - MYSQL_DATABASE=app_db
 
     api:
+        container_name: 'api_app_1'
         build: ./server
         restart: always
         volumes:
@@ -22,8 +24,9 @@ services:
         ports:
             - "8080:8080"
         depends_on:
-          - mysql
+            - mysql
         environment:
+            - ENVIRONMENT='dev'
             - MYSQL_HOST=db
         command: /usr/local/bin/python /app/manage.py runserver 0.0.0.0:8080
 

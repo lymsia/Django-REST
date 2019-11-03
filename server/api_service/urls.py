@@ -17,11 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-<<<<<<< HEAD
-    path('admin/', admin.site.urls),
-=======
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('purchases.urls')),
     #  url(r'^api-auth/', include('rest_framework.urls'))
->>>>>>> bbb0c25... adding serializer
 ]
