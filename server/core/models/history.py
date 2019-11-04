@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 
 
@@ -5,7 +6,7 @@ class History(models.Model):
 
     purchaser = models.ForeignKey('Purchaser', on_delete=models.CASCADE)
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    purchase_timestamp = models.DateTimeField(auto_now_add=True)
+    purchase_timestamp = models.DateTimeField(default=datetime.datetime.now)
 
     class Meta:
         db_table = 'history'

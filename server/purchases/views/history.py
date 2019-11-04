@@ -6,3 +6,4 @@ from rest_framework import generics
 class HistoryList(generics.ListCreateAPIView):
     queryset = History.objects.all()
     serializer_class = HistorySerializer
+
