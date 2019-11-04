@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
     mysql:
         container_name: 'api_db'
@@ -21,6 +21,7 @@ services:
         restart: always
         volumes:
             - ./server:/app
+            - ./develop:/app/develop
         ports:
             - "8080:8080"
         depends_on:

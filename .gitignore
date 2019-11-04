@@ -3,3 +3,7 @@ develop/data/
 
 # python
 __pycache__/
+
+# mac
+.DS_store
+
