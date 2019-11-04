@@ -10,12 +10,6 @@ make sure 8080 port is open\
 run these command on your terminal
 ```
   docker-compose up -d
-  docker exec -it api_app_1 bash
-```
-inside container run migration to create db table structure
-```
-  ./manage.py makemigrations
-  ./manage.py migrate
 ```
 
 this application can be accessed with urls:
