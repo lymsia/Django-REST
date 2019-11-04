@@ -6,7 +6,7 @@ class History(models.Model):
 
     purchaser = models.ForeignKey('Purchaser', on_delete=models.CASCADE)
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    purchase_timestamp = models.DateTimeField(default=datetime.datetime.now)
+    created_at = models.DateTimeField(default=datetime.datetime.now)
 
     class Meta:
         db_table = 'history'
@@ -15,6 +15,6 @@ class History(models.Model):
         return 'Purchaser: {}, Product: {}, Date: {})'.format(
             self.purchaser,
             self.product,
-            self.purchase_timestamp.date()
+            self.created_at.date()
         )
 
