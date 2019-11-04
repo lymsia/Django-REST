@@ -1,7 +1,7 @@
 # REST-API with Django REST Framework
 
 # Environment 
-BACKEND: Django framework
+BACKEND: Django framework\
 DB: MySQL
 
 # How to run
@@ -13,11 +13,17 @@ make sure 8080 port is open
 ```
 access the application with these urls: 
   - admin   : http://localhost:8080/admin
-  - api     : http://localhost:8080/api
+  - api     : http://localhost:8080/api could be use for mocking data
 
 # Create superuser
 ```
   docker exec -it api_app_1 bash
   ./manage.py createsuperuser
+```
+
+# Run automate test
+```
+  docker exec -it api_app_1 bash
+  ./manage.py test
 ```
 
