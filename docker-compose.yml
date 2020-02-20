@@ -27,9 +27,6 @@ services:
         depends_on:
             - mysql
         environment:
-            - ENVIRONMENT='dev'
+            # - ENVIRONMENT='dev'
             - MYSQL_HOST=db
-        command: /bin/sh -c "
-          python manage.py migrate &&
-          python manage.py runserver 0.0.0.0:8080"
 
