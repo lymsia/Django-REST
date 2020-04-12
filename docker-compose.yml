@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 services:
     mysql:
         container_name: 'api_db'
@@ -27,6 +27,6 @@ services:
         depends_on:
             - mysql
         environment:
-            # - ENVIRONMENT='dev'
+            - ENVIRONMENT='dev'
             - MYSQL_HOST=db
 

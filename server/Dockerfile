@@ -1,6 +1,5 @@
 FROM python:3.7
 ENV PYTHONUNBUFFERED 1
-ENV ENVIRONMENT=dev
 
 RUN mkdir -p /app
 WORKDIR /app
