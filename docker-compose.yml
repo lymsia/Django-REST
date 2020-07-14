@@ -29,4 +29,3 @@ services:
         environment:
             - ENVIRONMENT='dev'
             - MYSQL_HOST=db
-

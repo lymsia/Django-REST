@@ -18,8 +18,8 @@ class PurchaserTestCase(TestCase):
 
     def test_update_purchaser(self):
         user = Purchaser.objects.create(name='user2')
-        response = self.c.put(self.base_url + 'purchaser/{}/'.format(user.id),
-                    {'name': 'user3'}, format='json')
+        response = self.c.put(self.base_url + 'purchaser/{}/'.format(user.id), {
+            'name': 'user3'}, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Purchaser.objects.filter(name='user3').count(), 1)
 
@@ -28,4 +28,3 @@ class PurchaserTestCase(TestCase):
         response = self.c.delete(self.base_url + 'purchaser/{}/'.format(user.id))
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Purchaser.objects.filter(name='user4').count(), 0)
-

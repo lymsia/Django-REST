@@ -18,6 +18,12 @@ this application can be accessed with urls:
   - admin   : http://localhost:8080/admin → for admin site
   - api     : http://localhost:8080/api → could be use for mocking api
 
+# Migrate DB
+run migration to sync local DB
+```
+docker-compose exec api python manage.py migrate
+```
+
 # Create Superuser
 ```
   docker exec -it api_app_1 bash

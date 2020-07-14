@@ -1,6 +1,6 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
-from core.models import Product 
+from core.models import Product
 
 
 class ProductTestCase(TestCase):
@@ -18,8 +18,8 @@ class ProductTestCase(TestCase):
 
     def test_update_product(self):
         user = Product.objects.create(name='orange')
-        response = self.c.put(self.base_url + 'product/{}/'.format(user.id),
-                    {'name': 'kiwi'}, format='json')
+        response = self.c.put(self.base_url + 'product/{}/'.format(user.id), {
+            'name': 'kiwi'}, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Product.objects.filter(name='kiwi').count(), 1)
 
@@ -28,4 +28,3 @@ class ProductTestCase(TestCase):
         response = self.c.delete(self.base_url + 'product/{}/'.format(user.id))
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Product.objects.filter(name='banana').count(), 0)
-

@@ -13,4 +13,3 @@ def api_root(request, format=None):
         'product/<int:pk>': reverse('product-detail', request=request, format=format, kwargs={'pk': 1}),
         'purchaser-product': reverse('history-list', request=request, format=format),
     })
-
