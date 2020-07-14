@@ -27,6 +27,7 @@ jobs:
         pip install -r server/requirements.txt
     - name: Linter
       run: |
+        cp server/setup.cfg .
         flake8 server/purchases server/tests/api
     - name: DB Migrations
       run: |
