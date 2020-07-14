@@ -5,10 +5,13 @@ from core.models import History
 def history_accumulator(acc, history):
     dt_format = '%Y-%m-%d'
     if history.purchase_timestamp.strftime(dt_format) in acc:
-        acc[history.purchase_timestamp.strftime(dt_format)].append({'product': history.product.name})
+        acc[history.purchase_timestamp.strftime(dt_format)].append({
+            'product': history.product.name})
     else:
-        acc[history.purchase_timestamp.strftime(dt_format)] = [{'product': history.product.name}]
+        acc[history.purchase_timestamp.strftime(dt_format)] = [{
+            'product': history.product.name}]
     return acc
+
 
 def query_history(pk, start_date, end_date):
     dt_format = '%Y-%m-%d'
@@ -46,7 +49,6 @@ def query_history(pk, start_date, end_date):
             .select_related('purchaser', 'product')
 
     return History.objects\
-            .filter(purchaser__id=pk)\
-            .order_by('-purchase_timestamp')\
-            .select_related('purchaser', 'product')
-
+        .filter(purchaser__id=pk)\
+        .order_by('-purchase_timestamp')\
+        .select_related('purchaser', 'product')

@@ -10,10 +10,27 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.6, 3.7, 3.8]
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_USER: user
+          MYSQL_PASSWORD: user
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: app_db
+        ports:
+          - 3306:3306
+        # healthcheck
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    container:
+      image: python:3.7
+      env:
+        MYSQL_HOST: mysql
+        MYSQL_USER: user
+        MYSQL_PASSWORD: user
+        MYSQL_PORT: ${{ job.services.mysql.ports[3306] }}
 
     steps:
     - uses: actions/checkout@v2
@@ -24,10 +41,14 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r server/requirements.txt
+    - name: Linter
+      run: |
+        cp server/setup.cfg .
+        flake8 server/purchases server/tests/api
     - name: DB Migrations
       run: |
-        python manage.py migrate
+        python server/manage.py migrate
     - name: Run Tests
       run: |
-        python manage.py test
+        python server/manage.py test

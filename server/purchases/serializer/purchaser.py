@@ -6,4 +6,3 @@ class PurchaserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Purchaser
         fields = ['name']
-

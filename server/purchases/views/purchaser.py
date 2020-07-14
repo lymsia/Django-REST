@@ -11,4 +11,3 @@ class PurchaserList(generics.ListCreateAPIView):
 class PurchaserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Purchaser.objects.all()
     serializer_class = PurchaserSerializer
-

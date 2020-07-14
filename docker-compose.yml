@@ -28,4 +28,7 @@ services:
             - mysql
         environment:
             - ENVIRONMENT='dev'
-            - MYSQL_HOST=db
+            - WAIT_HOSTS=mysql:3306
+            - MYSQL_HOST=mysql
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=user

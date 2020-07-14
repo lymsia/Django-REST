@@ -17,4 +17,3 @@ class PurchaserHistory(generics.GenericAPIView):
         return Response({
             'purchases': reduce(history_accumulator, historys, {})
         })
-
