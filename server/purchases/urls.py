@@ -1,11 +1,10 @@
-from django.conf.urls import url, include
 from django.urls import path
 from purchases.views.purchaser import PurchaserList, PurchaserDetail
 from purchases.views.product import ProductList, ProductDetail
 from purchases.views.history import HistoryList
 from purchases.views.purchaser_history import PurchaserHistory
 from rest_framework.urlpatterns import format_suffix_patterns
-from purchases.root_view import api_root 
+from purchases.root_view import api_root
 
 
 urlpatterns = format_suffix_patterns([

@@ -4,6 +4,7 @@ from purchases.serializer.purchaser import PurchaserSerializer
 from purchases.serializer.product import ProductSerializer
 from rest_framework import serializers
 
+
 class TimestampField(serializers.DateTimeField):
     """
     Convert a django datetime to/from timestamp.
@@ -45,4 +46,3 @@ class HistorySerializer(serializers.HyperlinkedModelSerializer):
         if Product.objects.filter(id=value).count() < 1:
             raise serializers.ValidationError('Product object does not exists')
         return value
-
