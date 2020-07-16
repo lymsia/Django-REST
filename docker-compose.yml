@@ -15,6 +15,17 @@ services:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=app_db
 
+    phpmyadmin:
+        depends_on:
+          - mysql
+        image: phpmyadmin/phpmyadmin
+        restart: always
+        ports:
+          - '8081:80'
+        environment:
+          PMA_HOST: mysql
+          MYSQL_ROOT_PASSWORD: root
+
     api:
         container_name: 'api_app_1'
         build: ./server
