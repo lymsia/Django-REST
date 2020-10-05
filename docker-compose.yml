@@ -1,4 +1,15 @@
 version: '3.7'
+
+networks:
+    backend:
+        driver: bridge
+
+volumes:
+    mysql-vol:
+        driver: local
+    api-vol:
+        driver: local
+
 services:
     mysql:
         container_name: 'api_db'
@@ -8,7 +19,9 @@ services:
             - "3306:3306"
         volumes:
             - ./develop/config/mysql:/etc/mysql/conf.d
-            - ./develop/data/mysql:/var/lib/mysql
+            - mysql-vol:/var/lib/mysql
+        networks:
+            - backend
         environment:
             - MYSQL_USER=user
             - MYSQL_PASSWORD=user
@@ -21,11 +34,11 @@ services:
         restart: always
         volumes:
             - ./server:/app
-            - ./develop:/app/develop
+            - api-vol:/app/develop
         ports:
             - "8080:8080"
-        depends_on:
-            - mysql
+        networks:
+            - backend
         environment:
             - ENVIRONMENT='dev'
             - WAIT_HOSTS=mysql:3306
