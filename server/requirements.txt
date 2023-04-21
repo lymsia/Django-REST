@@ -19,7 +19,7 @@ pyflakes==2.2.0
 pytz==2020.1
 requests==2.24.0
 simplejson==3.17.0
-sqlparse==0.3.1
+sqlparse==0.4.4
 uritemplate==3.0.1
 urllib3==1.25.9
 uWSGI==2.0.18
